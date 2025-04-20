@@ -1,6 +1,6 @@
 package com.unicesumar.entities;
 
-import com.unicesumar.paymentMethods.PaymentType;
+import com.unicesumar.paymentMethods.PaymentMethod;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -10,13 +10,13 @@ public class Sales {
     private User buyer;
     private List<Product> products;
     private double totalValue;
-    private PaymentType paymentMethod;
+    private PaymentMethod paymentMethod;
     private String authCode;
     private LocalDateTime saleDate;
 
     //----Construtor----
     public Sales(UUID id, User buyer, List<Product> products, double totalValue,
-                 PaymentType paymentMethod, String authCode, LocalDateTime saleDate) {
+                 PaymentMethod paymentMethod, String authCode, LocalDateTime saleDate) {
         this.id = id;
         this.buyer = buyer;
         this.products = products;
@@ -43,7 +43,7 @@ public class Sales {
         return totalValue;
     }
 
-    public PaymentType getPaymentMethod() {
+    public PaymentMethod getPaymentMethod() {
         return paymentMethod;
     }
 

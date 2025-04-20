@@ -18,5 +18,4 @@ public enum PaymentType implements PaymentMethod {
                 break;
         }
     }
-
 }

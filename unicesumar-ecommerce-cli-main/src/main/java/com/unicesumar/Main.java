@@ -182,16 +182,20 @@ public class Main {
                         String paymentInput = scanner.nextLine().toUpperCase();
                         try {
                             paymentType = PaymentType.valueOf(paymentInput);
-                        } catch (IllegalArgumentException e) {
+                        } catch (IllegalArgumentException ex) {
                             System.out.println("Forma de pagamento inválida. Tente novamente.");
                         }
                     }
 
+                    // Aplicando Strategy + Factory
+                    PaymentMethod paymentMethod = PaymentMethodFactory.create(paymentType);
+
                     System.out.println("Aguarde, efetuando pagamento...");
                     String authCode = UUID.randomUUID().toString();
-                    System.out.println("Pagamento confirmado com sucesso via " + paymentType + ". Chave de Autenticação: " + authCode);
+                    paymentMethod.pay(totalValue);
+                    System.out.println("Chave de Autenticação: " + authCode);
 
-                    Sales sale = new Sales(UUID.randomUUID(), buyer, selectedProducts, totalValue, paymentType, authCode, LocalDateTime.now());
+                    Sales sale = new Sales(UUID.randomUUID(), buyer, selectedProducts, totalValue, paymentMethod, authCode, LocalDateTime.now());
                     listaDeVendas.save(sale);
 
                     System.out.println("\nResumo da venda:");
