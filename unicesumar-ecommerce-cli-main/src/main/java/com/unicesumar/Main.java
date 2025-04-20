@@ -50,8 +50,8 @@ public class Main {
             System.out.println("2 - Listar Produtos");
             System.out.println("3 - Cadastrar Usuário");
             System.out.println("4 - Listar Usuários");
-            System.out.println("5 - Registrar Vendas");
-            System.out.println("6 - Comprar Produto");
+            System.out.println("5 - Listar Vendas");
+            System.out.println("6 - Registrar Vendar");
             System.out.println("7 - Sair");
             System.out.print("\nEscolha uma opção: ");
 
